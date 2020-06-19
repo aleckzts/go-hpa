@@ -1,17 +1,17 @@
 steps:
   - id: "Build do source em Go"
     name: 'gcr.io/cloud-builders/go:alpine'
-    args: ['install', 'server']
-    env: ['GOPATH=./go-server']
+    args: ['install', 'hpa']
+    env: ['GOPATH=./go-hpa']
 
   - id: "Teste do compilado"
     name: 'gcr.io/cloud-builders/go:alpine'
-    args: ['test', 'server']
-    env: ['GOPATH=./go-server']
+    args: ['test', 'hpa']
+    env: ['GOPATH=./go-hpa']
 
   - id: "Build do container"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=docker.io/aleckzts/go-server', './go-server']
+    args: ['build', '--tag=docker.io/aleckzts/go-hpa', './go-hpa']
 
   - id: "Login no Docker Hun"
     name: 'gcr.io/cloud-builders/docker'
@@ -21,7 +21,7 @@ steps:
 
   - id: "Push da imagem para o Docker Hub"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'aleckzts/go-server']
+    args: ['push', 'aleckzts/go-hpa']
 
 secrets:
   - kmsKeyName: projects/codeeducation-279109/locations/global/keyRings/aleckzts-ring/cryptoKeys/key-dockerhub
