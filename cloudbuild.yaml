@@ -11,7 +11,7 @@ steps:
 
   - id: "Build do container"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=docker.io/aleckzts/go-hpa', './go-hpa']
+    args: ['build', '--tag=docker.io/aleckzts/go-hpa', '.']
 
   - id: "Login no Docker Hun"
     name: 'gcr.io/cloud-builders/docker'
