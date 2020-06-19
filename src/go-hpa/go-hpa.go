@@ -11,8 +11,7 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintf(w, "<html><body>" + greeting("Code.education Rocks!") + "</body></html>")
-  // fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+  fmt.Fprintf(w, greeting("Code.education Rocks!") )
 }
 
 func greeting(message string) string {
@@ -21,5 +20,5 @@ func greeting(message string) string {
     x += math.Sqrt(x);
   }
  
-  return fmt.Sprintf("<b>%s</b>", message)
+  return fmt.Sprintf(message)
 }

@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: go-hpa
-        image: aleckzts/go-hpa:latest
+        image: docker.io/aleckzts/go-hpa
         ports:
-        - containerPort: 80
+        - containerPort: 8000
         resources:
           requests:
             cpu: "50m"
