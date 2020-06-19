@@ -1,12 +1,12 @@
 steps:
   - id: "Build do source em Go"
     name: 'gcr.io/cloud-builders/go:alpine'
-    args: ['install', 'hpa']
+    args: ['install', 'go-hpa']
     env: ['GOPATH=./go-hpa']
 
   - id: "Teste do compilado"
     name: 'gcr.io/cloud-builders/go:alpine'
-    args: ['test', 'hpa']
+    args: ['test', 'go-hpa']
     env: ['GOPATH=./go-hpa']
 
   - id: "Build do container"
